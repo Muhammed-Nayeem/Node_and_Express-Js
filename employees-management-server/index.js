@@ -23,6 +23,12 @@ const employees = [
     profession: "Doctor",
     email: "shawpna@gmail.com",
   },
+  {
+    _id: 4,
+    name: "Shaila Akhter",
+    profession: "Accountant",
+    email: "shaila@gmail.com",
+  },
 ];
 
 //middlewares:
