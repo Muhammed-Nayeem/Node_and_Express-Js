@@ -18,6 +18,14 @@ app.get("/mobiles", (req, res) => {
   res.send(mobiles);
 });
 
+//get api -specific mobile find using dynamic id:
+app.get("/mobiles/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  console.log(`Mobile Id is: ${id}`);
+  const mobile = mobiles.find((mobile) => mobile?.id === id) || {};
+  res.send(mobile);
+});
+
 //port listener api:
 app.listen(port, () => {
   console.log(`Mobiles Server is running on PORT ${port}`);
