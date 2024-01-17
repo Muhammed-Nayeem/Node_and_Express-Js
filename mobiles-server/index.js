@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const mobiles = require("./phones.json");
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -10,6 +11,11 @@ app.use(express.json());
 //route url get api:
 app.get("/", (req, res) => {
   res.send("Mobiles Server is creating...!");
+});
+
+//mobiles url to find all Phones get api:
+app.get("/mobiles", (req, res) => {
+  res.send(mobiles);
 });
 
 //port listener api:
