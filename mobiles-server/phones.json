@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 13",
+    "storage": "128GB",
+    "ram": "6GB",
+    "price": 799.99,
+    "image": "https://adminapi.applegadgetsbd.com/storage/media/large/Device-for-Web-9981.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S21",
+    "storage": "256GB",
+    "ram": "8GB",
+    "price": 799.00,
+    "image": "https://adminapi.applegadgetsbd.com/storage/media/large/2101-34043.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Google Pixel 6",
+    "storage": "128GB",
+    "ram": "6GB",
+    "price": 699.99,
+    "image": "https://www.custommacbd.com/cdn/shop/files/3774-46951.jpg?v=1687464681"
+  },
+  {
+    "id": 4,
+    "name": "OnePlus 9",
+    "storage": "256GB",
+    "ram": "8GB",
+    "price": 749.99,
+    "image": "https://www.shopz.com.bd/wp-content/uploads/2021/11/Oneplus-9-Pro-12-256.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Huawei P40",
+    "storage": "256GB",
+    "ram": "8GB",
+    "price": 599.00,
+    "image": "https://www.mobiledokan.co/wp-content/uploads/2020/03/Huawei-P40-Black.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Xiaomi Mi 11",
+    "storage": "128GB",
+    "ram": "8GB",
+    "price": 599.99,
+    "image": "https://www.gizmochina.com/wp-content/uploads/2020/12/cats-1-500x500.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Sony Xperia 1 III",
+    "storage": "256GB",
+    "ram": "12GB",
+    "price": 999.00,
+    "image": "https://www.bdmobiles.co/wp-content/uploads/2022/11/Sony-Xperia-1-III-500x500.jpg"
+  },
+  {
+    "id": 8,
+    "name": "LG Velvet",
+    "storage": "128GB",
+    "ram": "6GB",
+    "price": 499.99,
+    "image": "https://www.mobiledokan.co/wp-content/uploads/2020/04/LG-Velvet-Black.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Walton Primo NF",
+    "storage": "28GB",
+    "ram": "6GB",
+    "price": 199.99,
+    "image": "https://m.phonegg.com/58/5894b-1.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Realme 7i",
+    "storage": "128GB",
+    "ram": "8GB",
+    "price": 299.99,
+    "image": "https://www.mobiledokan.co/wp-content/uploads/2020/09/Realme-7i.jpg"
+  }
+]
