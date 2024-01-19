@@ -48,11 +48,41 @@ async function run() {
       res.send(employees);
     });
 
+    //load single employee data by id using get api:
+    app.get("/employees/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const employee = await employeesCollection.findOne(query);
+      res.send(employee);
+    });
+
     //post api to create new user:
     app.post("/employees", async (req, res) => {
       const user = await req.body;
       const result = await employeesCollection.insertOne(user);
       res.send(result);
+    });
+
+    //put api to update an employee:
+    app.put("/employees/:id", async (req, res) => {
+      const id = req.params.id;
+      const employee = await req.body;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updateEmployee = {
+        $set: {
+          name: employee?.name,
+          profession: employee?.profession,
+          company: employee?.company,
+          email: employee?.email,
+        },
+      };
+      const updatedEmployer = await employeesCollection.updateOne(
+        filter,
+        updateEmployee,
+        options
+      );
+      res.send(updatedEmployer);
     });
 
     //delete api to delete an employee from the DB and UI:

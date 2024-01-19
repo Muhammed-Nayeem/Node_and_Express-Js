@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const Employees = () => {
   const loadedEmployees = useLoaderData();
   const [employees, setEmployees] = useState(loadedEmployees);
+  const navigate = useNavigate();
 
   //delete button handler:
   const employeeDeleteButtonHandler = (_id) => {
@@ -18,9 +19,14 @@ const Employees = () => {
           setEmployees(remaining);
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error.message);
       });
+  };
+
+  //update btn handler:
+  const employeeUpdateButtonHandler = (_id) => {
+    navigate(`/update-employee/${_id}`);
   };
 
   return (
@@ -34,8 +40,14 @@ const Employees = () => {
             <div key={employee?._id} className="user">
               <h3>Name: {employee?.name}</h3>
               <p>Profession: {employee?.profession}</p>
+              <p>Company: {employee?.company}</p>
               <p>Email: {employee?.email}</p>
-              <button className="btn btn-update">Update</button>
+              <button
+                onClick={() => employeeUpdateButtonHandler(employee?._id)}
+                className="btn btn-update"
+              >
+                Update
+              </button>
               <button
                 onClick={() => employeeDeleteButtonHandler(employee?._id)}
                 className="btn btn-delete"
