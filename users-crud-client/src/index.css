@@ -100,3 +100,27 @@ body {
   border-radius: 5px;
   padding: 15px 10px;
 }
+.btn {
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  margin-right: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+.btn-delete {
+  background-color: #dc143c;
+  color: white;
+}
+.btn-update {
+  background-color: #2424e9;
+  color: white;
+}
+.btn-delete:hover {
+  background-color: #ce032b;
+}
+.btn-update:hover {
+  background-color: #0505d4;
+}

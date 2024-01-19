@@ -15,6 +15,8 @@ const Users = () => {
               <h3>Name: {employee?.name}</h3>
               <p>Profession: {employee?.profession}</p>
               <p>Email: {employee?.email}</p>
+              <button className="btn btn-update">Update</button>
+              <button className="btn btn-delete">Delete</button>
             </div>
           ))}
         </div>
