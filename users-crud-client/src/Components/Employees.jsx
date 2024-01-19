@@ -1,11 +1,26 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const Employees = () => {
-  const employees = useLoaderData();
+  const loadedEmployees = useLoaderData();
+  const [employees, setEmployees] = useState(loadedEmployees);
 
   //delete button handler:
   const employeeDeleteButtonHandler = (_id) => {
-    console.log(_id);
+    fetch(`http://localhost:5000/employees/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const remaining = employees.filter((employee) => employee?._id !== _id);
+        if (data.deletedCount > 0) {
+          alert("Employee Deleted Successfully!");
+          setEmployees(remaining);
+        }
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
   };
 
   return (
@@ -21,7 +36,12 @@ const Employees = () => {
               <p>Profession: {employee?.profession}</p>
               <p>Email: {employee?.email}</p>
               <button className="btn btn-update">Update</button>
-              <button onClick={() => employeeDeleteButtonHandler(employee?._id)} className="btn btn-delete">Delete</button>
+              <button
+                onClick={() => employeeDeleteButtonHandler(employee?._id)}
+                className="btn btn-delete"
+              >
+                Delete
+              </button>
             </div>
           ))}
         </div>

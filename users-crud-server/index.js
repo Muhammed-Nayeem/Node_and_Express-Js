@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -16,7 +16,8 @@ app.get("/", (req, res) => {
 //mdb:
 // mohammednayeem808
 // 8i3kci1eCMDN8Odt
-const uri = "mongodb+srv://mohammednayeem808:8i3kci1eCMDN8Odt@cluster0.fyclago.mongodb.net/?retryWrites=true&w=majority";
+const uri =
+  "mongodb+srv://mohammednayeem808:8i3kci1eCMDN8Odt@cluster0.fyclago.mongodb.net/?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -24,7 +25,7 @@ const client = new MongoClient(uri, {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
-  }
+  },
 });
 
 async function run() {
@@ -36,35 +37,43 @@ async function run() {
     // const database = client.db("employeesDB");
     // const employeesCollection = database.collection("employees");
 
-    const employeesCollection = client.db("employeesDB").collection("employees");
+    const employeesCollection = client
+      .db("employeesDB")
+      .collection("employees");
 
     //get api to find all employees:
-    app.get("/employees", async(req, res) => {
+    app.get("/employees", async (req, res) => {
       const cursor = employeesCollection.find();
       const employees = await cursor.toArray();
       res.send(employees);
     });
 
     //post api to create new user:
-    app.post("/employees", async(req, res) => {
+    app.post("/employees", async (req, res) => {
       const user = await req.body;
       const result = await employeesCollection.insertOne(user);
       res.send(result);
     });
 
     //delete api to delete an employee from the DB and UI:
-    app.delete("/")
+    app.delete("/employees/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const employees = await employeesCollection.deleteOne(query);
+      res.send(employees);
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    console.log(
+      "Pinged your deployment. You successfully connected to MongoDB!"
+    );
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
   }
 }
 run().catch(console.dir);
-
 
 //listener:
 app.listen(port, () => {

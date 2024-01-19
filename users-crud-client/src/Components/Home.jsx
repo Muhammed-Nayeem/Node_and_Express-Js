@@ -7,10 +7,9 @@ const Home = () => {
     const company = form.company.value;
     const email = form.email.value;
     const newUser = { name, profession, company, email };
-    console.log(newUser);
 
     //post/create new user by post method:
-    fetch("http://localhost:5000/users", {
+    fetch("http://localhost:5000/employees", {
       method: "POST",
       headers: {
         "content-type": "application/json",
