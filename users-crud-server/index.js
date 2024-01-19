@@ -38,6 +38,13 @@ async function run() {
 
     const employeesCollection = client.db("employeesDB").collection("employees");
 
+    //get api to find all employees:
+    app.get("/users", async(req, res) => {
+      const cursor = employeesCollection.find();
+      const employees = await cursor.toArray();
+      res.send(employees);
+    });
+
     //post api to create new user:
     app.post("/users", async(req, res) => {
       const user = await req.body;

@@ -50,7 +50,7 @@ body {
   color: blue;
 }
 
-.home {
+.home, .employees {
   padding: 30px 0;
 }
 .section-title {
@@ -89,4 +89,14 @@ body {
   border: 0;
   background-color: crimson;
   color: white;
+}
+.employees .users {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+.employees .users .user {
+  border: 1px solid #808080;
+  border-radius: 5px;
+  padding: 15px 10px;
 }
