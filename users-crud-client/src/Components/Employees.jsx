@@ -1,7 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 
-const Users = () => {
+const Employees = () => {
   const employees = useLoaderData();
+
+  //delete button handler:
+  const employeeDeleteButtonHandler = (_id) => {
+    console.log(_id);
+  };
 
   return (
     <section className="employees">
@@ -16,7 +21,7 @@ const Users = () => {
               <p>Profession: {employee?.profession}</p>
               <p>Email: {employee?.email}</p>
               <button className="btn btn-update">Update</button>
-              <button className="btn btn-delete">Delete</button>
+              <button onClick={() => employeeDeleteButtonHandler(employee?._id)} className="btn btn-delete">Delete</button>
             </div>
           ))}
         </div>
@@ -25,4 +30,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Employees;

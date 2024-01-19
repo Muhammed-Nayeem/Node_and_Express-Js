@@ -1,5 +1,5 @@
 const Home = () => {
-  const addUserFormHandler = (e) => {
+  const addEmployeeFormHandler = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -33,12 +33,12 @@ const Home = () => {
     <section className="home">
       <div className="container">
         <article className="section-title">
-          <h2>Simple Users CRUD</h2>
+          <h2>Simple Employees CRUD</h2>
         </article>
         <div className="user-form">
           <div className="form">
-            <h3>Add New User From Here</h3>
-            <form onSubmit={addUserFormHandler}>
+            <h3>Add New Employee</h3>
+            <form onSubmit={addEmployeeFormHandler}>
               <input
                 type="text"
                 name="name"

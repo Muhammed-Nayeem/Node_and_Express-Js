@@ -10,7 +10,7 @@ app.use(express.json());
 
 //rote url get api:
 app.get("/", (req, res) => {
-  res.send("Users CRUD server is created...!");
+  res.send("Employees  CRUD server is created...!");
 });
 
 //mdb:
@@ -39,18 +39,21 @@ async function run() {
     const employeesCollection = client.db("employeesDB").collection("employees");
 
     //get api to find all employees:
-    app.get("/users", async(req, res) => {
+    app.get("/employees", async(req, res) => {
       const cursor = employeesCollection.find();
       const employees = await cursor.toArray();
       res.send(employees);
     });
 
     //post api to create new user:
-    app.post("/users", async(req, res) => {
+    app.post("/employees", async(req, res) => {
       const user = await req.body;
       const result = await employeesCollection.insertOne(user);
       res.send(result);
     });
+
+    //delete api to delete an employee from the DB and UI:
+    app.delete("/")
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
@@ -65,5 +68,5 @@ run().catch(console.dir);
 
 //listener:
 app.listen(port, () => {
-  console.log(`Users CRUD server is running on PORT ${port}`);
+  console.log(`Employees CRUD server is running on PORT ${port}`);
 });
